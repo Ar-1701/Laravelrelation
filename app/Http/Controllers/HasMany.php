@@ -37,13 +37,13 @@ class HasMany extends Controller
         // ])
         //     ->get();
         // $project = Project::with('deploy.languagess')->get();
-        // $project = Deployment::with(['languagess'])->get();
-        $project = Language::with(['deployment', 'deployment.projects'])->get();
-        dd($project);
-        echo "<pre>";
-        print_r($project);
-        echo "</pre>";
-        die;
+        $data['deploy'] = Deployment::with(['language.project'])->get();
+        // $project = Language::with(['deployment', 'deployment.lang'])->get();
+        // dd($project);
+        // echo "<pre>";
+        // print_r($project);
+        // echo "</pre>";
+        // die;
         return view('hasMany', $data);
     }
     public function add_project()

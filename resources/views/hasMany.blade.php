@@ -57,19 +57,19 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Project</th>
                 <th scope="col">Language</th>
                 <th scope="col">Status</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($deploy as $item)
-                @foreach ($item->deployment as $i)
-                    <tr>
-                        <th scope="row">{{ $item->id }}</th>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $i->status }}</td>
-                    </tr>
-                @endforeach
+                <tr>
+                    <th scope="row">{{ $item->id }}</th>
+                    <td>{{ $item->language->project->name }}</td>
+                    <td>{{ $item->language->name }}</td>
+                    <td>{{ $item->status }}</td>
+                </tr>
             @endforeach
         </tbody>
     </table>

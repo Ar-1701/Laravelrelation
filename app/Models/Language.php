@@ -10,7 +10,7 @@ class Language extends Model
     use HasFactory;
     public function deployment()
     {
-        return $this->hasOne(Deployment::class);
+        return $this->hasMany(Deployment::class);
     }
     public function project()
     {

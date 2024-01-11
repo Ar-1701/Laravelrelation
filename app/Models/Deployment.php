@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Deployment extends Model
 {
     use HasFactory;
-    public function languagess()
+    public function language()
     {
         return $this->belongsTo(Language::class);
     }
-    public function projects()
-    {
-        return $this->belongsTo(Project::class);
-    }
+    // public function projects()
+    // {
+    //     return $this->belongsTo(Project::class, Language::class);
+    // }
 }
