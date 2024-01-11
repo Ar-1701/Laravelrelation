@@ -11,13 +11,8 @@ class RelationLaravel extends Controller
 {
     public function welcome()
     {
-        // $mobile = Customer::find(1)->mobile_models;
-        $data['customer'] = MobileModel::find(1)->customer;
-        // echo "<pre>";
-        // print_r($data['customer']);
-        // // print_r($mobile);
-        // echo "</pre>";
-        // die;
+        $data['mobile'] = MobileModel::with('customer')->get();
+        $data['customers'] = Customer::with('mobile_models')->get();
         return view('welcome', $data);
     }
     public function add_data()
